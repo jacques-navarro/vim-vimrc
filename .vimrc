@@ -9,6 +9,10 @@ set undodir=undo_dir
 
 " Manage plugins with vim-plug
 call plug#begin()
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 " Install vim-plug if not found
@@ -21,3 +25,8 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
+
+" Airline/Powerline settings
+let g:airline_powerline_fonts = 1
+let g:airline_solarized_bg='dark'
+let g:airline_section_z = "%3p%% %l:%c"
