@@ -12,6 +12,9 @@ set tabstop=4
 " Ignore capital letters during search.
 set ignorecase
 
+" Show partial command you type in the last line of the screen.
+set showcmd
+
 " Pesist undo history
 set undofile
 
@@ -44,4 +47,4 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 let g:airline_powerline_fonts = 1
 let g:airline_solarized_bg='dark'
 let g:airline_section_z = "%3p%% %l:%c"
-let g:airline_section_c = "%F"
+let g:airline_section_c = "%F %M"
