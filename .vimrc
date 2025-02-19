@@ -45,6 +45,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " Airline/Powerline settings
 let g:airline_powerline_fonts = 1
-let g:airline_solarized_bg='dark'
+let g:airline_theme='papercolor'
 let g:airline_section_z = "%3p%% %l:%c"
 let g:airline_section_c = "%F %M"
