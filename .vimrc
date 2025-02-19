@@ -1,3 +1,17 @@
+set number
+set wrap
+syntax on
+        
+" Use space characters instead of tabs.
+set expandtab
+	
+
+" Set tab width to 4 columns.
+set tabstop=4
+
+" Ignore capital letters during search.
+set ignorecase
+
 " Pesist undo history
 set undofile
 
