@@ -4,6 +4,9 @@ syntax on
         
 " Use space characters instead of tabs.
 set expandtab
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 	
 
 " Set tab width to 4 columns.
