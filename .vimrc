@@ -15,6 +15,12 @@ set ignorecase
 " Show partial command you type in the last line of the screen.
 set showcmd
 
+" Wrap text
+set textwidth=80
+set wrapmargin=0
+set formatoptions+=t
+set linebreak
+
 " Pesist undo history
 set undofile
 
