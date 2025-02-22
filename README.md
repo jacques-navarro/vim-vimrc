@@ -1,8 +1,10 @@
-![](images/vim-c.png)
+![](images/Vimlogo.svg.png)
 
 # .vimrc
 
 My personal Vim setup
+
+![](images/vim-c.png)
 
 ## Plugins
 
