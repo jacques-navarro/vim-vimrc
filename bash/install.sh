@@ -28,3 +28,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # install llvm and clang
 apt-get install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
 
+# install yegappan/lsp plugin
+mkdir -p $HOME/.vim/pack/downloads/opt
+cd $HOME/.vim/pack/downloads/opt
+git clone https://github.com/yegappan/lsp
+vim -u NONE -c "helptags $HOME/.vim/pack/downloads/opt/lsp/doc" -c q
