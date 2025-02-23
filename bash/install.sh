@@ -1,24 +1,10 @@
 #!/bin/bash
 
-# switch to home directory and create vim directory
+# create vim directory in home directory
 mkdir ~/vim
-cd ~/vim
 
 # clone git repo from Github
 git clone git@github.com:jacques-navarro/vim-vimrc.git ~/vim
-
-
-# install git
-echo 'Installing git'
-apt install -y git
-echo 'git installed successfully:'
-git --version
-
-# install Vim
-echo 'Installing Vim'
-apt intall -y vim
-echo 'Vim installed successfully:'
-vim --version
 
 # configure git
 echo 'Configuring git'
