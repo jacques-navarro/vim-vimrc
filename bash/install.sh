@@ -33,3 +33,7 @@ mkdir -p $HOME/.vim/pack/downloads/opt
 cd $HOME/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
 vim -u NONE -c "helptags $HOME/.vim/pack/downloads/opt/lsp/doc" -c q
+
+# copy .vimrc to home directory
+cd ~
+cp ~/.vim/.vimrc ~
