@@ -12,3 +12,16 @@ My personal Vim setup
 - [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - [yegappan/lsp](https://github.com/yegappan/lsp)
+
+## Installation
+
+```
+# create vim directory in home directory
+mkdir ~/vim
+ 
+ # clone git repo from Github
+git clone git@github.com:jacques-navarro/vim-vimrc.git ~/vim
+
+# run install Bash script
+sudo ~/vim/vim-vimrc/bash/install.sh
+```
