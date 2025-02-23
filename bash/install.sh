@@ -16,18 +16,18 @@ git config --system alias.ol "log --pretty=format:'%C(auto)%h%Creset %Cgreen%<(1
 git alias
 
 # install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo /home/ubuntu/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install llvm and clang
 apt-get -y install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
 
 # install yegappan/lsp plugin
-mkdir -p "$HOME"/.vim/pack/downloads/opt
-cd "$HOME"/.vim/pack/downloads/opt
+mkdir -p /home/ubuntu/.vim/pack/downloads/opt
+cd /home/ubuntu/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
-vim -u NONE -c "helptags $HOME/.vim/pack/downloads/opt/lsp/doc" -c q
+vim -u NONE -c "helptags /home/ubuntu/.vim/pack/downloads/opt/lsp/doc" -c q
 
 # copy .vimrc to home directory
-cd ~
-cp ~/vim/vim-vimrc/.vimrc "$HOME"/
+cd /home/ubuntu 
+cp /home/ubuntu/vim/vim-vimrc/.vimrc /home/ubuntu
