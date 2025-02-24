@@ -27,7 +27,9 @@ mkdir -p /home/ubuntu/.vim/pack/downloads/opt
 cd /home/ubuntu/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
 vim -u NONE -c "helptags /home/ubuntu/.vim/pack/downloads/opt/lsp/doc" -c q
+chown -R ubuntu:ubuntu /home/ubuntu/.vim
 
 # copy .vimrc to home directory
 cd /home/ubuntu 
 cp /home/ubuntu/vim/vim-vimrc/.vimrc /home/ubuntu
+chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
