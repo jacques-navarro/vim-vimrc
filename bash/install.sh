@@ -33,3 +33,12 @@ chown -R ubuntu:ubuntu /home/ubuntu/.vim
 cd /home/ubuntu 
 cp /home/ubuntu/vim/vim-vimrc/.vimrc /home/ubuntu
 chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
+
+# generate ssh key
+echo **********************
+echo * Generating SSH key *
+echo **********************
+echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "4421229+jacques-navarro@users.noreply.github.com" -N "" -f /home/ubuntu/.ssh/id_ed25519
+eval "$(ssh-agent -s)"
+ssh-add /home/ubuntu/.ssh/id_ed25519
+cat /home/ubuntu/.ssh/id_ed25519.pub

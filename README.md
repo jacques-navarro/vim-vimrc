@@ -15,15 +15,6 @@ My personal Vim setup
 
 ## Installation
 
-### Generate SSH key and add it to Github
-
-```
-echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "4421229+jacques-navarro@users.noreply.github.com" -N "" -f ~/.ssh/id_ed25519
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-cat ~/.ssh/id_ed25519.pub
-```
-
 ### Clone repo and run install bash script
 
 ```
