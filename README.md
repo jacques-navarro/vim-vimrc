@@ -32,7 +32,7 @@ mkdir ~/vim
 cd ~/vim
  
  # clone git repo from Github
-git clone git@github.com:jacques-navarro/vim-vimrc.git
+git clone https://github.com/jacques-navarro/vim-vimrc.git 
 
 # run install Bash script
 sudo ~/vim/vim-vimrc/bash/install.sh
