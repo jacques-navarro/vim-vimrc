@@ -5,10 +5,14 @@
 echo '************************'
 echo '* Install LLVM & clang *'
 echo '************************'
+
 apt-get -y install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
 
 # configure git
-echo 'Configuring git'
+
+echo '************************'
+echo '*    Configure git     *'
+echo '************************'
 
 git config --global user.name 'jacques-navarro'
 git config --global user.email '4421229+jacques-navarro@users.noreply.github.com'
@@ -23,10 +27,20 @@ git config --system alias.ol "log --pretty=format:'%C(auto)%h%Creset %Cgreen%<(1
 git alias
 
 # install vim-plug
+
+echo '************************'
+echo '*   Install vim-plug   *'
+echo '************************'
+
 curl -fLo /home/ubuntu/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install yegappan/lsp plugin
+
+echo '************************'
+echo '*  Install LSP plugin  *'
+echo '************************'
+
 mkdir -p /home/ubuntu/.vim/pack/downloads/opt
 cd /home/ubuntu/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
@@ -34,14 +48,21 @@ vim -u NONE -c "helptags /home/ubuntu/.vim/pack/downloads/opt/lsp/doc" -c q
 chown -R ubuntu:ubuntu /home/ubuntu/.vim
 
 # copy .vimrc to home directory
+
+echo '************************'
+echo '*     Copy .vimrc      *'
+echo '************************'
+
 cd /home/ubuntu 
 cp /home/ubuntu/vim/vim-vimrc/.vimrc /home/ubuntu
 chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
 
 # generate ssh key
-echo **********************
-echo * Generating SSH key *
-echo **********************
+
+echo '************************'
+echo '*   Generate SSH key   *'
+echo '************************'
+
 echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "4421229+jacques-navarro@users.noreply.github.com" -N "" -f /home/ubuntu/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
 ssh-add /home/ubuntu/.ssh/id_ed25519
