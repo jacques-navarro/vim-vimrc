@@ -1,13 +1,3 @@
-#!/bin/bash
-
-# install llvm and clang
-
-echo '************************'
-echo '* Install LLVM & clang *'
-echo '************************'
-
-apt-get -y install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
-
 # configure git
 
 echo '************************'
@@ -32,7 +22,7 @@ echo '************************'
 echo '*   Install vim-plug   *'
 echo '************************'
 
-curl -fLo /home/ubuntu/.vim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install yegappan/lsp plugin
@@ -41,11 +31,11 @@ echo '************************'
 echo '*  Install LSP plugin  *'
 echo '************************'
 
-mkdir -p /home/ubuntu/.vim/pack/downloads/opt
-cd /home/ubuntu/.vim/pack/downloads/opt
+mkdir -p ~/.vim/pack/downloads/opt
+cd ~/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
-vim -u NONE -c "helptags /home/ubuntu/.vim/pack/downloads/opt/lsp/doc" -c q
-chown -R ubuntu:ubuntu /home/ubuntu/.vim
+vim -u NONE -c "helptags ~/.vim/pack/downloads/opt/lsp/doc" -c q
+# chown -R ubuntu:ubuntu /home/ubuntu/.vim
 
 # copy .vimrc to home directory
 
@@ -53,9 +43,9 @@ echo '************************'
 echo '*     Copy .vimrc      *'
 echo '************************'
 
-cd /home/ubuntu 
-cp /home/ubuntu/vim/vim-vimrc/.vimrc /home/ubuntu
-chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
+cd $HOME
+cp ~/vim/vim-vimrc/.vimrc /home/ubuntu
+# chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
 
 # generate ssh key
 
@@ -63,7 +53,7 @@ echo '************************'
 echo '*   Generate SSH key   *'
 echo '************************'
 
-echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "4421229+jacques-navarro@users.noreply.github.com" -N "" -f /home/ubuntu/.ssh/id_ed25519
+echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "4421229+jacques-navarro@users.noreply.github.com" -N "" -f ~/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
-ssh-add /home/ubuntu/.ssh/id_ed25519
-cat /home/ubuntu/.ssh/id_ed25519.pub
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
