@@ -26,5 +26,5 @@ cd ~/vim
 git clone https://github.com/jacques-navarro/vim-vimrc.git 
 
 # run install Bash script
-sudo ~/vim/vim-vimrc/bash/install.sh $USER
+sudo ~/vim/vim-vimrc/bash/install-llvm-clang.sh $USER
 ```
