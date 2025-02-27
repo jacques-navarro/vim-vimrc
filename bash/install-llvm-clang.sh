@@ -11,4 +11,5 @@ apt-get -y install clang-format clang-tidy clang-tools clang clangd libc++-dev l
 # run configure-git-vim.sh as regular user
 # requires $USER as command line parameter when the current script is called
 # The second bash script and the PWD must be the same as the first script
+cd "$2"/vim/vim-vimrc/bash
 exec su "$1" -- "configure-git-vim.sh"
