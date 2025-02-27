@@ -1,20 +1,15 @@
 # configure git
 
 echo '************************'
-echo '*    Configure git     *'
+echo '*   User git config    *'
 echo '************************'
 
 git config --global user.name 'jacques-navarro'
 git config --global user.email '4421229+jacques-navarro@users.noreply.github.com'
-git config --global core.editor 'vim'
-git config --global init.defaultBranch main
-git config --list
 
-# add git aliases
-git config --global alias.alias 'config --get-regexp ^alias'
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset - %Cgreen%<(16)%ah%Creset %C(bold blue)%<(16)<%an>%Creset %C(auto)%d%Creset%s' --abbrev-commit"
-git config --global alias.ol "log --pretty=format:'%C(auto)%h%Creset %Cgreen%<(16)%ah%Creset %C(auto)%d%Creset %s'"
-git alias
+echo ''
+git config --list
+echo ''
 
 # install vim-plug
 
