@@ -1,10 +1,76 @@
-# configure git
+#!/bin/bash
+
+set -eu pipefail
+
+# Prompt user for a Github username
+# The http status code is checked and accepts the username,
+# if the status code is between 200 and 399.
+# If an incorrect username is entered the user prompted
+# again to enter a username up to two more times.
+# The program exits after the third incorrect username is entered.
+
+username=""
+
+getUsername() {
+
+local errorCounter=3
+
+while true; do
+
+    # prompt user for user name
+    # store value in username variable
+    read -p  "Enter Github username: " username
+
+    # check if username is empty
+    if [[ -z "$username"  ]]; then
+        echo
+        echo "Enter a username"
+        echo
+        continue
+    fi
+
+    # request http headers
+    # use cut to extract the second column of text
+    # use awk to extract the response status code
+    local code=$(curl -Is https://github.com/"$username" | stdbuf -o0 cut -d " " -f 2  | awk 'NR==1{print $1}')
+
+    local pattern="(2|3)[[:digit:]]{2}"
+
+    # match a patter that is either 2XX or 3XX status code
+    if [[ "$code" =~ $pattern ]]; then
+        echo
+        echo "A valid Github username was entered." >&2
+        echo
+        break
+    else
+        ((errorCounter--))
+
+        if (($errorCounter == 0)); then
+            echo
+            echo "You have entered too many incorrect usernames."
+            echo "Exiting program." 
+            echo
+            return "2"
+        fi
+
+        echo
+        echo "$username is not a valid Github username!" >&2
+        echo "You have $errorCounter tries left." >&2
+        echo
+        continue
+    fi
+
+    return "0"
+done
+}
 
 echo '************************'
 echo '*   User git config    *'
 echo '************************'
 
-git config --global user.name 'jacques-navarro'
+getUsername
+
+git config --global user.name "$username"
 git config --global user.email '4421229+jacques-navarro@users.noreply.github.com'
 
 echo ''
