@@ -1,6 +1,9 @@
 #!/bin/bash
 
-set -eu pipefail
+set -euo pipefail
+
+username=""
+useremail=""
 
 # Prompt user for a Github username
 # The http status code is checked and accepts the username,
@@ -8,8 +11,6 @@ set -eu pipefail
 # If an incorrect username is entered the user prompted
 # again to enter a username up to two more times.
 # The program exits after the third incorrect username is entered.
-
-username=""
 
 getUsername() {
 
@@ -64,14 +65,70 @@ while true; do
 done
 }
 
+# prompt user for an email address
+# validate email address
+# If an incorrect email address is entered the user prompted
+# again to enter an email address up to two more times.
+# The program exits after the third incorrect email address is entered.
+
+getUseremail() {
+
+local errorCounter=3
+
+while true; do
+    
+    # prompt user for user name
+    # store value in username variable
+    read -p  "Enter Github email address: " useremail
+
+    # check if useremail is empty
+    if [[ -z "$useremail"  ]]; then
+        echo
+        echo "Enter an email address" >&2
+        echo
+        continue
+    fi
+
+    local pattern="^(([A-Za-z0-9]+((\.|\-|\_|\+)?[A-Za-z0-9]?)*[A-Za-z0-9]+)|[A-Za-z0-9]+)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
+
+    if [[ "$useremail" =~ $pattern ]]; then
+        echo
+        echo "$useremail is a valid email address." >&2
+        echo
+        break
+    else
+        ((errorCounter--))
+
+        if (($errorCounter == 0)); then
+            echo
+            echo "You have entered too many incorrect email addresses." >&2
+            echo "Exiting program." >&2
+            echo
+            return "2"
+        fi
+
+        echo
+        echo "$useremail is not a valid email address." >&2
+        echo "You have $errorCounter tries left." >&2
+        echo
+        continue
+    fi
+
+    return "0"
+    
+done
+}
+
 echo '************************'
 echo '*   User git config    *'
 echo '************************'
 
 getUsername
 
+getUseremail
+
 git config --global user.name "$username"
-git config --global user.email '4421229+jacques-navarro@users.noreply.github.com'
+git config --global user.email "$useremail"
 
 echo ''
 git config --list
