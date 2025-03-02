@@ -89,6 +89,7 @@ while true; do
         continue
     fi
 
+    # source: https://gist.github.com/guessi/82a73ee7eb2b1216eb9db17bb8d65dd1
     local pattern="^(([A-Za-z0-9]+((\.|\-|\_|\+)?[A-Za-z0-9]?)*[A-Za-z0-9]+)|[A-Za-z0-9]+)@(([A-Za-z0-9]+)+((\.|\-|\_)?([A-Za-z0-9]+)+)*)+\.([A-Za-z]{2,})+$"
 
     if [[ "$useremail" =~ $pattern ]]; then
@@ -119,9 +120,11 @@ while true; do
 done
 }
 
+echo
 echo '************************'
 echo '*   User git config    *'
 echo '************************'
+echo
 
 getUsername
 
@@ -134,42 +137,40 @@ echo ''
 git config --list
 echo ''
 
-# install vim-plug
-
+echo
 echo '************************'
 echo '*   Install vim-plug   *'
 echo '************************'
+echo
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# install yegappan/lsp plugin
-
+echo
 echo '************************'
 echo '*  Install LSP plugin  *'
 echo '************************'
+echo
 
 mkdir -p ~/.vim/pack/downloads/opt
 cd ~/.vim/pack/downloads/opt
 git clone https://github.com/yegappan/lsp
 vim -u NONE -c "helptags ~/.vim/pack/downloads/opt/lsp/doc" -c q
-# chown -R ubuntu:ubuntu /home/ubuntu/.vim
 
-# copy .vimrc to home directory
-
+echo
 echo '************************'
 echo '*     Copy .vimrc      *'
 echo '************************'
+echo
 
 cd $HOME
 cp ~/vim/vim-vimrc/.vimrc /home/ubuntu
-# chown -R ubuntu:ubuntu /home/ubuntu/.vimrc
 
-# generate ssh key
-
+echo
 echo '************************'
 echo '*   Generate SSH key   *'
 echo '************************'
+echo
 
 echo -e "\n\n\n" | ssh-keygen -t ed25519 -C "$useremail" -N "" -f ~/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
