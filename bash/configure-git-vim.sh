@@ -164,7 +164,7 @@ echo '************************'
 echo
 
 cd $HOME
-cp ~/vim/vim-vimrc/.vimrc /home/ubuntu
+cp ~/vim/vim-vimrc/.vimrc ~/ 
 
 echo
 echo '************************'
