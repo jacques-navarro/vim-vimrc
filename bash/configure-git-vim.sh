@@ -5,8 +5,10 @@ set -euo pipefail
 username="$1"
 useremail="$2"
 
+if [ "$useranme" ] && [ "$useremail"  ]; then
 git config --global user.name "$username"
 git config --global user.email "$useremail"
+fi
 
 echo ''
 git config --list

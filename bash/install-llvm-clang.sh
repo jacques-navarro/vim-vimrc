@@ -12,6 +12,8 @@ useremail=""
 # again to enter a username up to two more times.
 # The program exits after the third incorrect username is entered.
 
+
+
 getUsername() {
 
 echo
@@ -132,9 +134,16 @@ while true; do
 done
 }
 
-getUsername
+setupgit
 
-getUseremail
+echo "Would you like to set up a git username and email address?"
+read -p "(yes/no)" setupgit
+
+if (($setupgit == yes)); then
+    getUsername
+
+    getUseremail
+fi
 
 echo
 echo '************************'
